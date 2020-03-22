@@ -1,0 +1,48 @@
+<div class="card-columns">
+    <article class="card w-100 mt-3" *ngFor="let post of posts">
+      <div class="card-header">
+        <h3>
+          <a [routerLink]="['/entrada', post.id]" routerLinkActive="active">{{post.title}}</a></h3>
+      </div>
+      <div class="card-body">
+        <!--Imagen-->
+        <div class="post-image w-100" *ngIf="post.image">
+          <img src="{{url+ 'post/image/'+ post.image}}" class="w-100">
+        </div>
+        <div class="post-image w-100" *ngIf="!post.image">
+          <img src="https://via.placeholder.com/500x500" class="w-100">
+        </div>
+        <div class="post-buttons mt-3">
+          <a [routerLink]="['/entrada', post.id]" routerLinkActive="active" class="btn btn-info mr-2">Leer</a>
+          <span *ngIf="identity && identity.sub == post.user_id">
+            <a [routerLink]="['/editar-entrada', post.id]" routerLinkActive="active"
+              class="btn btn-warning mr-2">Editar</a>
+            
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#deletepost'+post.id">Eliminar</button>
+            <!-- Modal -->
+            <div id="deletepost{{post.id}}" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Eliminar post {{post.title}}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                  </div>
+                  <div class="modal-body">
+                    <p>Seguro que deseas eliminar este post esta accion no se podra deshacer.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <a (click)="sendid(post.id)" class="btn btn-warning" data-dismiss="modal">Eliminar Definitivamente</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </article>
+  </div>

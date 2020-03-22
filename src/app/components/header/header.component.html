@@ -1,0 +1,53 @@
+ 
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+      <a class="navbar-brand" [routerLink]="['inicio']">
+        <img src="assets/images/carta.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Blog angular</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['inicio']">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" *ngFor="let Category of categories" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/categoria', Category.id]"   >{{Category.name}}</a>
+          </li>        
+        </ul>
+        <ul class="navbar-nav navbar-right"  *ngIf="!identity">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['login']">Login <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['register']"  >Registrarse</a>
+          </li>        
+        </ul>
+       
+        <ul class="navbar-nav navbar-right" *ngIf="identity && identity.name">
+          <li class="nav-item dropdown">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{identity.name + ' '+ identity.surname}} &nbsp;
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" [routerLink]="['/crear-entrada']" routerLinkActive="active" >Crear Entrada</a>
+              <a class="dropdown-item" [routerLink]="['/crear-categoria']" routerLinkActive="active" >Crear Categoria</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" [routerLink]="['/perfil/', identity.sub]" routerLinkActive="active">Mi Perfil</a>
+              <a class="dropdown-item" [routerLink]="['/ajustes']" routerLinkActive="active" >Ajustes</a>
+              <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar Sesi&oacute;n</a>
+            </div>
+          </li>
+          <li *ngIf="identity && identity.image">
+            <div class="avatar-mask">
+              <img src="{{ url + 'usuarios/avatar/'+ identity.image}}" class="avatar-navbar"/>
+            </div>
+           
+          </li>
+         
+        </ul>
+      </div>
+    </nav>
+
+

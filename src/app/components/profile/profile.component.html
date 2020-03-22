@@ -1,0 +1,19 @@
+<div class="loading" *ngIf="!posts">
+    cargando...
+  </div>
+  <div class="container-fluid mt-3" *ngIf="posts">
+    <hr>
+      <div class="user-card">
+        <div class="avatar-mask-profile float-left mr-3">
+            <img src="{{ url + 'usuarios/avatar/'+ identity.image}}" class="avatar-navbar"/>
+          </div>
+          <div class="data-mask float-left">
+            <h1>{{usuario.name +' '+ usuario.surname}}</h1>
+            <p [innerHtml]="usuario.description"></p>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+    <hr>
+<post-list [posts]="posts" [identity]="identity" [url]="url" (sendCount)="deletePost($event)" ></post-list>
+  </div>
+  

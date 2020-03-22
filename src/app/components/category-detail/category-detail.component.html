@@ -1,0 +1,17 @@
+<div class="loading" *ngIf="!category">
+    cargando...
+  </div>
+  <div class="container-fluid" *ngIf="category">
+    <h2>{{category.name}}</h2>
+    <hr>
+    <div class="loading" *ngIf="!posts">
+        cargando...
+      </div>
+
+      <div class="alert alert-danger"  *ngIf="posts && posts.length == 0">
+        <strong>Lo Siento</strong> No existen publicaciones en esta categoria
+      </div>
+      <post-list [posts]="posts" [identity]="identity" [url]="url" (sendCount)="deletePost($event)"></post-list>  
+
+  </div>
+  

@@ -1,0 +1,8 @@
+<div class="loading" *ngIf="!posts">
+  cargando...
+</div>
+<div class="container-fluid" *ngIf="posts">
+  <h2>{{page_title}}</h2>
+  <hr>
+  <post-list [posts]="posts" [identity]="identity" [url]="url" (sendCount)="deletePost($event)"></post-list>
+</div>

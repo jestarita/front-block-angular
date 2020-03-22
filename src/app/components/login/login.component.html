@@ -1,0 +1,42 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-md-12 justify-content-sm-center">
+      <div class="row">
+        <div class="col-xl-5 col-sm-6  mx-auto">
+          <h2 class="text-center">{{page_title}}</h2>
+          <p>Identificate en la plataforma para acceder a mas funciones</p>
+          <div class="card">
+            <div class="card-body">
+              <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+                <div class="form-group">
+                  <label for="email">email</label>
+                  <input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="user.email"
+                    required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                  <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+                    el Correo no es valido
+                  </small>
+                </div>
+                <div class="form-group">
+                  <label for="password">Constrase&ntilde;a</label>
+                  <input type="password" name="password" class="form-control" #password="ngModel"
+                    [(ngModel)]="user.password" required />
+                  <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+                    La Constrase&ntilde;a no es permitida
+                  </small>
+                </div>
+                <div class="form-group row mb-0">
+                  <div class="col-md-6 offset-md-4">
+                    <input type="submit" value="Login" class="btn btn-success"
+                    [disabled]="loginform.invalid">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

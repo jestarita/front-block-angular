@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "Frontend-block": {
@@ -24,9 +24,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "node_modules/froala-editor/css/froala_style.min.css",
+              "node_modules/font-awesome/css/font-awesome.css"
+            
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",             
+              "node_modules/froala-editor/js/froala_editor.pkgd.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Frontend-block"
+    }
+  },
+  "defaultProject": "Frontend-block",
+  "cli": {
+    "analytics": false
+  }
 }
