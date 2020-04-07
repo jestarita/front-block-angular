@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url : 'http://localhost/backend_block/public/api/',
+  // url : 'http://localhost/backend_block/public/api/',
+  url : 'backend_block/public/api/',
   htmlEntities: function(str) {
     return String(str).replace('&ntilde;', 'ñ')
                       .replace('&Ntilde;', 'Ñ')

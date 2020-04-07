@@ -1,0 +1,7 @@
+{
+    "/backend_block/public/api/*":{
+        "target": "http://localhost/",
+        "secure": false,
+        "ChangeOrigin": true
+    }
+}

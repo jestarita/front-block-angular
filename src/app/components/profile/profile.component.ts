@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
       response =>{
         if(response.status == 'success'){
          this.usuario = response.user; 
-        
+        console.log(this.usuario);
         }
       }, error =>{
         console.log(<any>error);

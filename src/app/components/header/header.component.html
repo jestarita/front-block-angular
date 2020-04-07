@@ -45,6 +45,12 @@
             </div>
            
           </li>
+          <li *ngIf="!identity && !identity.image">
+            <div class="avatar-mask">
+              <img src="../../../assets/images/descarga.png" class="avatar-navbar"/>
+            </div>
+           
+          </li>
          
         </ul>
       </div>
